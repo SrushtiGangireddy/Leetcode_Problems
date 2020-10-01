@@ -1,0 +1,28 @@
+class Solution {
+    public int reverse(int x) {
+        boolean flag = false;
+        if ( x < 0 ) {
+            x = 0 - x;
+            flag = true;
+        }
+        
+        int res = 0;
+        int temp = x;
+        
+        while ( temp > 0) {
+            int mod = temp % 10;
+            temp = temp / 10;
+            long l = res;
+            if (l*10 > Integer.MAX_VALUE) {
+                return 0;
+            }
+            res = res * 10 + mod;
+        }
+        
+        if (flag) {
+            return 0 - res;
+        }
+        return res;
+        
+    }
+}
